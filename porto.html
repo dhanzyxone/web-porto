@@ -1,0 +1,171 @@
+<!--
+=========================================================
+FILE        : index.html
+DESKRIPSI   :
+File utama website portfolio.
+
+HTML digunakan untuk membuat struktur halaman:
+- Navbar
+- Tentang saya
+- Skill
+- Project
+- Kontak
+
+Website ini dibuat untuk portfolio developer.
+=========================================================
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <!-- Encoding karakter -->
+    <meta charset="UTF-8">
+
+    <!-- Agar responsive di HP -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Judul Website -->
+    <title>Portfolio Saya</title>
+
+    <!-- Menghubungkan CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+NAVBAR
+Menu navigasi website
+===================================================== -->
+    <nav>
+
+        <h2 class="logo">Portfolio</h2>
+
+        <ul>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skill">Skill</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- =====================================================
+HERO SECTION
+Bagian pembuka website
+===================================================== -->
+    <section class="hero">
+
+        <h1>Halo, Saya Dhanzy</h1>
+
+        <p>Mahasiswa & Belajar Software Developer</p>
+
+        <button onclick="sayHello()">
+            Kenalan
+        </button>
+
+    </section>
+
+
+    <!-- =====================================================
+ABOUT SECTION
+Informasi tentang diri
+===================================================== -->
+    <section id="about">
+
+        <h2>Tentang Saya</h2>
+
+        <p>
+            Saya sedang belajar pemrograman seperti
+            Python, Web Development, dan AI.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+SKILL SECTION
+Menampilkan skill
+===================================================== -->
+    <section id="skill">
+
+        <h2>Skill</h2>
+
+        <div class="skill-list">
+
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Python</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+PROJECT SECTION
+Menampilkan project yang pernah dibuat
+===================================================== -->
+    <section id="project">
+
+        <h2>Project</h2>
+
+        <div class="project">
+
+            <h3>Hand Gesture Detection</h3>
+
+            <p>
+                Project Python menggunakan OpenCV
+                untuk mendeteksi gesture tangan.
+            </p>
+
+        </div>
+
+        <div class="project">
+
+            <h3>Face Gesture Detection</h3>
+
+            <p>
+                Sistem deteksi ekspresi wajah menggunakan
+                MediaPipe dan Python.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+CONTACT SECTION
+Kontak yang bisa dihubungi
+===================================================== -->
+    <section id="contact">
+
+        <h2>Kontak</h2>
+
+        <p>Email : example@email.com</p>
+
+    </section>
+
+
+    <!-- =====================================================
+FOOTER
+===================================================== -->
+    <footer>
+
+        <p>© 2026 Portfolio Saya</p>
+
+    </footer>
+
+
+    <!-- Menghubungkan JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

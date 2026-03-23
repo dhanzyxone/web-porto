@@ -52,7 +52,7 @@ nav ul li a {
 
     text-align: center;
     padding: 100px;
-    background: #007bff;
+    background: #000000;
     color: white;
 
 }
@@ -78,7 +78,7 @@ section {
 
 .skill {
 
-    background: #007bff;
+    background: #070707;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;

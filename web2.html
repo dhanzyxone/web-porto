@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaffa Harfansyah | Portfolio Developer</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins & Inter -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            align-items: center;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9eef5 100%);
+            color: #1a2a3a;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e0e7ef;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 10px;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 8%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 1rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Wrapper foto */
+        .profile-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Foto profil */
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 40px -12px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        /* Section Umum */
+        section {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 2rem 2rem;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        section:hover {
+            transform: translateY(-3px);
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(135deg, #1e293b, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 3px;
+        }
+
+        /* About */
+        #about p {
+            font-size: 1.1rem;
+            color: #334155;
+            line-height: 1.7;
+            margin-top: 0.5rem;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 20px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        /* Skill */
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill {
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+            color: #1e40af;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Project Cards */
+        #project {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .project {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem;
+            transition: all 0.35s;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 35px -12px rgba(37, 99, 235, 0.2);
+        }
+
+        .project h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project h3 i {
+            color: #3b82f6;
+            font-size: 1.4rem;
+        }
+
+        .project p {
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* Contact */
+        #contact {
+            text-align: center;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border-radius: 28px;
+            padding: 2rem;
+            margin-top: 1rem;
+            border: 1px solid #e2e8f0;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.2rem;
+            background: #f1f5f9;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .contact-item i {
+            font-size: 1.6rem;
+            color: #2563eb;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: #2563eb;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0f172a;
+            color: #cbd5e1;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 5%;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            section {
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skill-list {
+                justify-content: center;
+            }
+
+            .hero button {
+                padding: 0.7rem 1.8rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Dhaffa.dev</div>
+        <ul>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skill">Skill</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="profile-wrapper">
+            <img src="poto (2).jpeg" alt="Foto Profil Dhaffa" class="profile-pic">
+        </div>
+        <h1>Halo, Saya Dhaffa Harfansyah</h1>
+        <p>Mahasiswa D4 Bisnis Digital Politeknik Negeri Padang | Web Developer, Data Science & AI Enthusiast. Suka
+            menciptakan solusi digital yang impactful.
+        </p>
+        <button id="greetBtn"><i class="fas fa-hand-peace" style="margin-right: 8px;"></i> Kenalan</button>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2><i class="fas fa-user-astronaut" style="margin-right: 12px; color:#2563eb;"></i> Tentang Saya</h2>
+        <p>
+            Saya adalah seorang mahasiswa D4 Bisnis Digital di Politeknik Negeri Padang yang memiliki ketertarikan besar
+            di dunia pemrograman.
+            Saat ini saya fokus mendalami pengembangan web (HTML, CSS, JavaScript) serta eksplorasi AI dengan Python dan
+            OpenCV.
+            Saya percaya bahwa teknologi dapat memberdayakan bisnis dan kehidupan. Setiap project yang saya buat adalah
+            langkah untuk terus belajar dan berinovasi.
+        </p>
+    </section>
+
+    <!-- SKILL SECTION -->
+    <section id="skill">
+        <h2><i class="fas fa-code" style="margin-right: 12px; color:#2563eb;"></i> Skill & Tools</h2>
+        <div class="skill-list">
+            <div class="skill">HTML5 & CSS3</div>
+            <div class="skill">Python & OpenCV</div>
+            <div class="skill">MediaPipe</div>
+            <div class="skill">Git & GitHub</div>
+            <div class="skill">UI/UX Design Basic</div>
+        </div>
+    </section>
+
+    <!-- PROJECT SECTION (Menampilkan lebih menarik) -->
+    <section id="project">
+        <h2><i class="fas fa-laptop-code" style="margin-right: 12px; color:#2563eb;"></i> Project Unggulan</h2>
+        <div class="projects-container">
+            <div class="project">
+                <h3>Hand Gesture Detection</h3>
+                <p>Project Python memanfaatkan OpenCV dan MediaPipe untuk mendeteksi gerakan tangan secara real-time.
+                    Bisa digunakan sebagai dasar kontrol presentasi atau game interaktif.</p>
+                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                    <span
+                        style="background:#eef2ff; padding:4px 12px; border-radius:20px; font-size:0.75rem;">#Python</span>
+                    <span
+                        style="background:#eef2ff; padding:4px 12px; border-radius:20px; font-size:0.75rem;">#OpenCV</span>
+                </div>
+            </div>
+            <div class="project">
+                <h3>Pengembang sistem Kecerdasan Buatan Berbasis Large Language Model untuk
+                    Layanan Akademik di Politeknik Negeri Padang</h3>
+                <p>Publikasi satu artikel ilmiah minimal pada jurnal nasiona ber-ISSn dengan status publish/ accepted
+                    atau mengikuti seminar nasional dengan iuran artikel pada prosiding dengan bukti letter of accepted.
+                </p>
+                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                    <span
+                        style="background:#eef2ff; padding:4px 12px; border-radius:20px; font-size:0.75rem;">#LLM</span>
+                    <span
+                        style="background:#eef2ff; padding:4px 12px; border-radius:20px; font-size:0.75rem;">#Python</span>
+                </div>
+            </div>
+            <div class="project">
+                <h3> Riset dan Pengembangan UMKM Berkelanjutan - Peneltian jurusan Adminisrasi Niaga</h3>
+                <p>Website portfolio interaktif dengan desain modern, animasi halus, dan responsif di semua perangkat.
+                    Mengimplementasikan best practices HTML/CSS serta interaksi JavaScript.</p>
+                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                    <span
+                        style="background:#eef2ff; padding:4px 12px; border-radius:20px; font-size:0.75rem;">#HTML/CSS</span>
+                    <span
+                        style="background:#eef2ff; padding:4px 12px; border-radius:20px; font-size:0.75rem;">#JavaScript</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION (Lebih elegan) -->
+    <section id="contact">
+        <h2><i class="fas fa-paper-plane" style="margin-right: 12px; color:#2563eb;"></i> Hubungi Saya</h2>
+        <div class="contact-card">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:dhanzymediatech@gmail.com">dhanzymediatech@gmail.com</a>
+            </div>
+            <div style="margin-top: 20px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
+                <a href="#" style="color:#334155; font-size:1.5rem; transition:0.2s;"><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/dhaffa-harfansyah-a165aa2b4"
+                    style="color:#334155; font-size:1.5rem; transition:0.2s;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/dhaffa.hrfnsyh?igsh=dDlvMGJ2NDBydng="
+                    style="color:#334155; font-size:1.5rem; transition:0.2s;"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@dhanzy.creator?_r=1&_t=ZS-94cZCDtdRMm"
+                    style="color:#334155; font-size:1.5rem; transition:0.2s;"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p style="margin-top: 20px; color:#475569;">📌 Padang, Indonesia | Tersedia untuk kolaborasi dan freelance
+                project.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Dhaffa Harfansyah | Dibuat dengan <i class="fas fa-heart" style="color:#ef4444;"></i> dan semangat
+            belajar</p>
+    </footer>
+
+    <script>
+        // Fungsi untuk tombol "Kenalan"
+        function sayHello() {
+            const message = "Hai! Terima kasih sudah mampir 👋\nSaya Dhaffa, senang berkenalan denganmu! Yuk kolaborasi buat project keren 🚀";
+            alert(message);
+        }
+
+        // Event listener untuk tombol
+        const btn = document.getElementById('greetBtn');
+        if (btn) {
+            btn.addEventListener('click', sayHello);
+        }
+
+        // Smooth scrolling untuk semua link navigasi
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Efek tambahan: menampilkan pesan selamat datang di console
+        console.log("%c✨ Welcome to Dhaffa's Portfolio! ✨", "color: #2563eb; font-size: 16px; font-weight: bold;");
+        console.log("Explore projects & feel free to connect!");
+
+        // Interaksi hover pada project card sedikit lebih hidup (sudah ada di CSS, tapi tambahin efek dinamis)
+        const projects = document.querySelectorAll('.project');
+        projects.forEach(proj => {
+            proj.addEventListener('mouseenter', () => {
+                proj.style.transition = 'all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+            });
+        });
+
+        // Animasi saat scroll (menggunakan Intersection Observer untuk efek fade tambahan)
+        const fadeElements = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+            observer.observe(section);
+        });
+        // langsung panggil sedikit lebih rapi
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                fadeElements.forEach(section => {
+                    if (section.getBoundingClientRect().top < window.innerHeight - 100) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

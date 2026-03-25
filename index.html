@@ -21,10 +21,32 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e9eef5 100%);
+            background-color: #000000;
             color: #1a2a3a;
             line-height: 1.6;
             scroll-behavior: smooth;
+            transition: background 0.5s ease;
+        }
+
+        /* Background untuk setiap section */
+        #about {
+            background-image: url(bc2.jpg);
+            color: rgb(0, 255, 115);
+        }
+
+        #skill {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        #project {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: rgb(255, 0, 0);
+        }
+
+        #contact {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
         }
 
         /* Custom Scrollbar */
@@ -45,7 +67,7 @@
         nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: left;
             padding: 1rem 8%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -54,6 +76,8 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+
         }
 
         .logo {
@@ -64,7 +88,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
+            align-items: left;
         }
 
         nav ul {
@@ -108,6 +132,7 @@
             padding: 5rem 1rem 4rem;
             position: relative;
             overflow: hidden;
+            color: #0b22f0;
         }
 
         /* Wrapper foto */
@@ -184,7 +209,7 @@
         /* About */
         #about p {
             font-size: 1.1rem;
-            color: #334155;
+            color: #000000;
             line-height: 1.7;
             margin-top: 0.5rem;
             background: #f8fafc;
@@ -387,7 +412,7 @@
 
     <!-- NAVBAR -->
     <nav>
-        <div class="logo">Dhaffa.dev</div>
+        <div class="logo" align="left">Dhaffa.web</div>
         <ul>
             <li><a href="#about">Tentang</a></li>
             <li><a href="#skill">Skill</a></li>
@@ -399,18 +424,20 @@
     <!-- HERO SECTION -->
     <div class="hero">
         <div class="profile-wrapper">
-            <img src="poto (2).jpeg" alt="Foto Profil Dhaffa" class="profile-pic">
+            <img src="poto.jpeg" alt="Foto Profil Dhaffa" class="profile-pic">
         </div>
-        <h1>Halo, Saya Dhaffa Harfansyah</h1>
-        <p>Mahasiswa D4 Bisnis Digital Politeknik Negeri Padang | Web Developer, Data Science & AI Enthusiast. Suka
-            menciptakan solusi digital yang impactful.
+        <br>
+        <h1>Halo, Saya Dhaffa</h1>
+        <p> Vibes Code
         </p>
+        <br>
+        <br>
         <button id="greetBtn"><i class="fas fa-hand-peace" style="margin-right: 8px;"></i> Kenalan</button>
     </div>
 
     <!-- ABOUT SECTION -->
     <section id="about">
-        <h2><i class="fas fa-user-astronaut" style="margin-right: 12px; color:#2563eb;"></i> Tentang Saya</h2>
+        <h2><i class="fas fa-user-astronaut" style="margin-right: 12px; color:#000000;"></i> Tentang Saya</h2>
         <p>
             Saya adalah seorang mahasiswa D4 Bisnis Digital di Politeknik Negeri Padang yang memiliki ketertarikan besar
             di dunia pemrograman.
@@ -491,15 +518,17 @@
                     style="color:#334155; font-size:1.5rem; transition:0.2s;"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.tiktok.com/@dhanzy.creator?_r=1&_t=ZS-94cZCDtdRMm"
                     style="color:#334155; font-size:1.5rem; transition:0.2s;"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/channel/UC9n8sXo2l7m1Zt3a5kKjL9w"
+                    style="color:#334155; font-size:1.5rem; transition:0.2s;"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/6285126205130" style="color:#334155; font-size:1.5rem; transition:0.2s;"><i
+                        class="fab fa-whatsapp"></i></a>
             </div>
-            <p style="margin-top: 20px; color:#475569;">📌 Padang, Indonesia | Tersedia untuk kolaborasi dan freelance
-                project.</p>
+            <p style="margin-top: 20px; color:#475569;">📌 Padang, Indonesia </p>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Dhaffa Harfansyah | Dibuat dengan <i class="fas fa-heart" style="color:#ef4444;"></i> dan semangat
-            belajar</p>
+
     </footer>
 
     <script>

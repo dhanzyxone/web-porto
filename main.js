@@ -1,12 +1,12 @@
-// ========== DATA ORGANISASI (LENGKAP DENGAN INFORMASI) ==========
+// ========== DATA ORGANISASI ==========
 const organizationData = {
     halcom: {
         title: "PT. Halcom Integrated Solution",
         role: "Junior Project Manager",
         description: "Bertanggung jawab dalam mengelola proyek IT, koordinasi tim pengembang, monitoring progress proyek, dan memastikan deliverables sesuai dengan timeline. Berhasil menyelesaikan 3 proyek dengan tingkat kepuasan klien 95%.",
-        date: "2024 - Sekarang",
+        date: "Januari - Februari 2026",
         tags: ["Project Management", "Agile", "Team Coordination", "Client Handling"],
-        logo: " Januari - Februari 2026 - PT Halcom.png"
+        logo: "PT Halcom.png"
     },
     hydtech: {
         title: "Hydtech",
@@ -66,7 +66,123 @@ const organizationData = {
     }
 };
 
-// ========== CIRCULAR CAROUSEL INFINITE LOOP (FOKUS TENGAH) ==========
+// ========== TYPING EFFECT (BERULANG TERUS) ==========
+document.addEventListener('DOMContentLoaded', function () {
+    const texts = [
+        "Halo, Saya Dhaffa Harfansyah",
+        "Web Developer & AI Enthusiast",
+        "Vibes Code | Create Impact"
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById('typingText');
+
+    function typeEffect() {
+        if (!typingElement) return;
+
+        const currentText = texts[textIndex];
+
+        if (isDeleting) {
+            // Menghapus karakter
+            typingElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            // Mengetik karakter
+            typingElement.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        // Jika sudah selesai mengetik
+        if (!isDeleting && charIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 2000);
+            return;
+        }
+
+        // Jika sudah selesai menghapus
+        if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            setTimeout(typeEffect, 500);
+            return;
+        }
+
+        // Kecepatan mengetik/menghapus
+        const speed = isDeleting ? 50 : 100;
+        setTimeout(typeEffect, speed);
+    }
+
+    typeEffect();
+    console.log('✅ Typing Effect Aktif!');
+});
+
+// ========== SKILL ANIMASI (AKTIF SAAT SCROLL) ==========
+document.addEventListener('DOMContentLoaded', function () {
+    const skillSection = document.getElementById('skill');
+    const fills = document.querySelectorAll('.progress-fill');
+    const percentSpans = document.querySelectorAll('.skill-percent');
+    let animated = false;
+
+    function animateSkills() {
+        if (animated) return;
+
+        fills.forEach((fill, index) => {
+            const targetPercent = parseInt(fill.getAttribute('data-percent'));
+            if (isNaN(targetPercent)) return;
+
+            // Animate progress bar
+            fill.style.width = targetPercent + '%';
+
+            // Animate angka persen
+            let currentPercent = 0;
+            const duration = 1200;
+            const interval = 20;
+            const step = (targetPercent / duration) * interval;
+
+            const counter = setInterval(() => {
+                currentPercent += step;
+                if (currentPercent >= targetPercent) {
+                    currentPercent = targetPercent;
+                    clearInterval(counter);
+                }
+                if (percentSpans[index]) {
+                    percentSpans[index].textContent = Math.floor(currentPercent) + '%';
+                }
+            }, interval);
+        });
+
+        animated = true;
+    }
+
+    function resetSkills() {
+        fills.forEach(fill => {
+            fill.style.width = '0%';
+        });
+        percentSpans.forEach(span => {
+            span.textContent = '0%';
+        });
+        animated = false;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateSkills();
+            } else {
+                resetSkills();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    if (skillSection) {
+        observer.observe(skillSection);
+    }
+
+    console.log('✅ Skill Animasi Aktif!');
+});
+
+// ========== CIRCULAR CAROUSEL INFINITE LOOP ==========
 document.addEventListener('DOMContentLoaded', function () {
     const track = document.getElementById('orgCircularTrack');
     const cards = document.querySelectorAll('.org-circular-card');
@@ -78,13 +194,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!track || cards.length === 0) return;
 
-    let currentIndex = 2; // Mulai dari index tengah
+    let currentIndex = 2;
     const totalCards = cards.length;
     let autoPlay;
     let startX = 0, currentX = 0, isDragging = false;
-    let cardWidth = 110; // Default width + gap
+    let cardWidth = 110;
 
-    // Hitung lebar card + gap
     function getCardWidth() {
         const firstCard = cards[0];
         if (firstCard) {
@@ -96,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return 110;
     }
 
-    // Update posisi track agar card aktif berada di tengah
     function updateTrackPosition() {
         cardWidth = getCardWidth();
         const container = document.querySelector('.org-circular-wrapper');
@@ -109,7 +223,6 @@ document.addEventListener('DOMContentLoaded', function () {
         track.style.transform = `translateX(-${Math.max(0, scrollPosition)}px)`;
     }
 
-    // Update active class (hanya satu yang aktif)
     function updateActive() {
         cards.forEach((card, index) => {
             if (index === currentIndex) {
@@ -121,7 +234,6 @@ document.addEventListener('DOMContentLoaded', function () {
         updateIndicators();
     }
 
-    // Update indicators dots
     function updateIndicators() {
         if (!indicatorsContainer) return;
         const dots = indicatorsContainer.querySelectorAll('.org-dot');
@@ -134,7 +246,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Buat indicators
     function createIndicators() {
         if (!indicatorsContainer) return;
         indicatorsContainer.innerHTML = '';
@@ -151,28 +262,24 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Next slide (infinite loop)
     function nextSlide() {
         currentIndex = (currentIndex + 1) % totalCards;
         updateActive();
         updateTrackPosition();
     }
 
-    // Prev slide (infinite loop)
     function prevSlide() {
         currentIndex = (currentIndex - 1 + totalCards) % totalCards;
         updateActive();
         updateTrackPosition();
     }
 
-    // Go to specific slide
     function goToSlide(index) {
         currentIndex = index;
         updateActive();
         updateTrackPosition();
     }
 
-    // Auto play setiap 3 detik
     function startAutoPlay() {
         if (autoPlay) clearInterval(autoPlay);
         autoPlay = setInterval(() => {
@@ -187,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // ========== DRAG GESER ==========
+    // Drag mouse
     if (track) {
         track.addEventListener('mousedown', (e) => {
             e.preventDefault();
@@ -217,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function () {
             startAutoPlay();
         });
 
-        // Touch swipe untuk HP
+        // Touch swipe
         track.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
             isDragging = true;
@@ -268,7 +375,6 @@ document.addEventListener('DOMContentLoaded', function () {
         container.addEventListener('mouseleave', startAutoPlay);
     }
 
-    // Resize handler
     window.addEventListener('resize', () => {
         setTimeout(updateTrackPosition, 100);
     });
@@ -305,7 +411,6 @@ document.addEventListener('DOMContentLoaded', function () {
         stopAutoPlay();
     }
 
-    // Event klik pada card
     cards.forEach(card => {
         card.addEventListener('click', () => {
             const orgId = card.getAttribute('data-org');
@@ -313,7 +418,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Tutup modal
     if (closeModal) {
         closeModal.addEventListener('click', () => {
             modal.classList.remove('active');
@@ -321,7 +425,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Tutup modal dengan klik di luar
     if (modal) {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
@@ -331,7 +434,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Inisialisasi
     createIndicators();
     updateActive();
     setTimeout(() => {
@@ -341,3 +443,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
     console.log('✅ Circular Carousel Aktif! Total ' + totalCards + ' logo');
 });
+
+// ========== TOMBOL KENALAN ==========
+document.addEventListener('DOMContentLoaded', function () {
+    const greetBtn = document.getElementById('greetBtn');
+    if (greetBtn) {
+        greetBtn.addEventListener('click', function () {
+            alert("Hai! Terima kasih sudah mampir 👋\nSaya Dhaffa, senang berkenalan denganmu! Yuk kolaborasi buat project keren 🚀");
+        });
+    }
+});
+
+// ========== SMOOTH SCROLL ==========
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+});
+
+// ========== SECTION FADE IN ==========
+document.addEventListener('DOMContentLoaded', function () {
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+});
+
+console.log('✅ Website siap! Semua animasi berjalan dengan baik');

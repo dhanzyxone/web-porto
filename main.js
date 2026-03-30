@@ -493,4 +493,67 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// ========== PROJECT PROGRESS ANIMASI ==========
+document.addEventListener('DOMContentLoaded', function () {
+    const projectSection = document.getElementById('project');
+    const projectFills = document.querySelectorAll('.project-progress-fill');
+    const projectPercentSpans = document.querySelectorAll('.project-progress-percent');
+    let projectAnimated = false;
+
+    function animateProjectProgress() {
+        if (projectAnimated) return;
+
+        projectFills.forEach((fill, index) => {
+            const targetPercent = parseInt(fill.getAttribute('data-percent'));
+            if (isNaN(targetPercent)) return;
+
+            fill.style.width = targetPercent + '%';
+
+            let currentPercent = 0;
+            const duration = 1200;
+            const interval = 20;
+            const step = (targetPercent / duration) * interval;
+
+            const counter = setInterval(() => {
+                currentPercent += step;
+                if (currentPercent >= targetPercent) {
+                    currentPercent = targetPercent;
+                    clearInterval(counter);
+                }
+                if (projectPercentSpans[index]) {
+                    projectPercentSpans[index].textContent = Math.floor(currentPercent) + '%';
+                }
+            }, interval);
+        });
+
+        projectAnimated = true;
+    }
+
+    function resetProjectProgress() {
+        projectFills.forEach(fill => {
+            fill.style.width = '0%';
+        });
+        projectPercentSpans.forEach(span => {
+            span.textContent = '0%';
+        });
+        projectAnimated = false;
+    }
+
+    const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateProjectProgress();
+            } else {
+                resetProjectProgress();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    if (projectSection) {
+        projectObserver.observe(projectSection);
+    }
+
+    console.log('✅ Project Progress Animasi Aktif!');
+});
+
 console.log('✅ Website siap! Semua animasi berjalan dengan baik');
